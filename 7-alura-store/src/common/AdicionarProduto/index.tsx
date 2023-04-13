@@ -17,12 +17,12 @@ export default function adicionarCarrinho(produtoCarrinho: Icarrinho) {
             setCarrinho([produtoCarrinho])
             setSaldo(saldo + produtoCarrinho.price)
         } else {
-            atualizaQuantidadeItem(carrinho);
+            atualizaQuantidadeItem();
         }
 
     }
 
-    function atualizaQuantidadeItem(carrinho: Icarrinho[]) {
+    function atualizaQuantidadeItem() {
         let carrinhoAtual: Icarrinho[];
         let quantidade;
 
@@ -42,5 +42,5 @@ export default function adicionarCarrinho(produtoCarrinho: Icarrinho) {
         }
     }
 
-    return atualizaCarrinho()
+    return atualizaCarrinho
 }
