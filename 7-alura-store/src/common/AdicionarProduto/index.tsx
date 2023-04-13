@@ -34,7 +34,7 @@ export default function useAdicionarCarrinho() {
                         quantidade: quantidadeAtualizada
                     })
                 }else{
-                    return ({item})
+                    return (item)
                 }
             })
         }else{
