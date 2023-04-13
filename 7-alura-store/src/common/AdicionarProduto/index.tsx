@@ -29,7 +29,13 @@ export default function adicionarCarrinho(produtoCarrinho: Icarrinho) {
         carrinho.map((item) => {
             if (item.id = produtoCarrinho.id) {
                 quantidade = item.quantidade + produtoCarrinho.quantidade
-                carrinhoAtual.push({ ...item, quantidade })
+                carrinhoAtual.push({ 
+                    name: item.name,
+                    photo: item.photo,
+                    price: item.price,
+                    id: item.id,
+                    quantidade: quantidade 
+                })
             } else {
                 carrinho.push(item)
             }
