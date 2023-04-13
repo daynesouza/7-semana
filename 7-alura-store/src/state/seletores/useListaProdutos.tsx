@@ -1,10 +1,11 @@
-import { selector } from "recoil";
+import { selector, useRecoilValue } from "recoil";
 import { Iproduto } from "types/produto";
 import produtos from '../../../db.json';
+import { listaDeComprasState } from 'state/atom';
 
 export const produtosAsync = selector({
     key: 'produtosAsyn',
-    get: async () => {
+    get: () => {
         return produtos;
     }
     /* get: async () => {
@@ -13,3 +14,6 @@ export const produtosAsync = selector({
         return produtosJson
     } */
 })
+
+
+

@@ -4,7 +4,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     justify-content: space-evenly;
     row-gap: 1rem;
 }
@@ -41,3 +41,7 @@
     font-size: 36px;
     color: $main__carrinho__saldo--fontColor;
 }
+.carrinho__botao{    
+    width: 15rem;
+}
+

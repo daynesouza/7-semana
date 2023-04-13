@@ -1,14 +1,14 @@
 import Button from 'common/button';
-import style from './Carrinho.module.scss';
+import style from './ItensCarrinho.module.scss';
 import { useRecoilState } from 'recoil';
 import { listaDeComprasState, saldoTotalState } from 'state/atom';
 
-export default function Carrinho() {
+export default function ItensCarrinho() {
 
     const [carrinho, setCarrinho] = useRecoilState(listaDeComprasState);
     const [saldo, setSaldo] = useRecoilState(saldoTotalState);
 
-    function adicionarProduto() {
+    function listaDeProdutos() {
         if (carrinho !== null) {
             return (
                 carrinho.map((produto) =>
@@ -26,17 +26,18 @@ export default function Carrinho() {
         <div className={style.carrinho}>
             <h2 className={style.carrinho__titulo}>Carrinho</h2>
 
-            {adicionarProduto()}
+            {listaDeProdutos()}
 
             <div className={style.carrinho__saldo}>
                 <span className={style.carrinho__saldo__text}>Saldo Total</span>
                 <span className={style.carrinho__saldo__text}>R$ {saldo.toFixed(2)}</span>
             </div>
-
-            <Button
-                name='Comprar'
-                onClick={() => null}
-            />
+            <div className={style.carrinho__botao}>
+                <Button
+                    name='Comprar'
+                    onClick={() => null}
+                />
+            </div>
         </div>
     )
 }

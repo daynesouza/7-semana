@@ -1,4 +1,5 @@
 import PaginaPadrao from 'components/PaginaPadrao';
+import Carrinho from 'pages/Carrinho';
 import DetalheProduto from 'components/detalheProduto';
 import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
@@ -17,6 +18,7 @@ export default function AppRouter(){
                     <Route path='pc' element={<Pc />}/>
                     <Route path='playstation' element={<Playstation />}/>                    
                     <Route path='DetalheProduto/:id' element={<DetalheProduto />}/>                                  
+                    <Route path='carrinho' element={<Carrinho />}/>                                  
                     <Route path='*' element={<NotFound />}/>                                  
                 </Route>
             </Routes>
