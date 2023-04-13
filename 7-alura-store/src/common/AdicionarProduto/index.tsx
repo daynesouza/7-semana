@@ -1,45 +1,48 @@
-import carrinho from 'components/carrinho';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { listaDeComprasState, saldoTotalState } from 'state/atom';
 import { Icarrinho } from 'types/carrinho';
 
 
 
-export default function adicionarCarrinho(produtoCarrinho: Icarrinho) {
-    const carrinho = useRecoilValue(listaDeComprasState);
-    const setCarrinho = useSetRecoilState(listaDeComprasState);
+export default function useAdicionarCarrinho() {
+    const [carrinho, setCarrinho] = useRecoilState(listaDeComprasState);
+    const [saldo, setSaldo] = useRecoilState(saldoTotalState);
 
-    const saldo = useRecoilValue(saldoTotalState);
-    const setSaldo = useSetRecoilState(saldoTotalState);
-
-    function atualizaCarrinho() {
+    function atualizaCarrinho(produtoCarrinho: Icarrinho) {
         if (verificaCarrinhoVazio()) {
             setCarrinho([produtoCarrinho])
             setSaldo(saldo + produtoCarrinho.price)
         } else {
-            atualizaQuantidadeItem();
+            atualizaQuantidadeItem(produtoCarrinho);
         }
 
     }
 
-    function atualizaQuantidadeItem() {
+    function atualizaQuantidadeItem(produtoCarrinho: Icarrinho) {
         let carrinhoAtual: Icarrinho[];
-        let quantidade;
+        
+        if (carrinho.find( item => item.id === produtoCarrinho.id)){
+            carrinhoAtual = carrinho?.map((item) => {
+                if (produtoCarrinho.id === item.id) {
+                    return(
+                    { 
+                        name: produtoCarrinho.name,
+                        photo: produtoCarrinho.photo,
+                        price: produtoCarrinho.price,
+                        id: produtoCarrinho.id,
+                        quantidade: item.quantidade++
+                    })
+                }else{
+                    return ({item})
+                }
+            })
+        }else{
+            carrinhoAtual = [...carrinho, produtoCarrinho];
+        }
 
-        carrinho.map((item) => {
-            if (item.id = produtoCarrinho.id) {
-                quantidade = item.quantidade + produtoCarrinho.quantidade
-                carrinhoAtual.push({ 
-                    name: item.name,
-                    photo: item.photo,
-                    price: item.price,
-                    id: item.id,
-                    quantidade: quantidade 
-                })
-            } else {
-                carrinho.push(item)
-            }
-        })
+        setCarrinho([...carrinhoAtual]);
+
+      
     }
 
     function verificaCarrinhoVazio() {

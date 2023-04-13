@@ -1,6 +1,6 @@
 import style from './Produto.module.scss';
 import classNames from 'classnames';
-import adicionarCarrinho from 'common/AdicionarProduto';
+import useAdicionarCarrinho from 'common/AdicionarProduto';
 import Button from 'common/button';
 import { Iproduto } from 'types/produto';
 import { useNavigate } from 'react-router-dom';
@@ -8,8 +8,9 @@ import { useNavigate } from 'react-router-dom';
 export default function Produto( props: Iproduto){
     const { name, photo, price, id, category } = props;
     const quantidade = 1;
-    const navigate = useNavigate();
     const produtoCarrinho = {name, photo, price, id, quantidade}
+    const navigate = useNavigate();
+    const adicionarProdutoNoCarrinho = useAdicionarCarrinho();
 
     return (
         <div className={style.produto}>
@@ -27,7 +28,7 @@ export default function Produto( props: Iproduto){
             <Button 
                 key= {id}
                 name="Comprar"
-                onClick={ () => adicionarCarrinho(produtoCarrinho) }            
+                onClick={ () => adicionarProdutoNoCarrinho(produtoCarrinho) }
             />
         </div>
     )
