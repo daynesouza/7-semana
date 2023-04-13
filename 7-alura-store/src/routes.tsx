@@ -1,4 +1,5 @@
 import PaginaPadrao from 'components/PaginaPadrao';
+import DetalheProduto from 'components/detalheProduto';
 import Home from 'pages/Home';
 import Pc from 'pages/Pc';
 import Playstation from 'pages/Playstation';
@@ -12,8 +13,9 @@ export default function AppRouter(){
                 <Route path='/' element={<PaginaPadrao />}>
                     <Route index element={<Home />}/>
                     <Route path='xbox' element={<Xbox />}/>
-                    <Route path='pc' element={<Playstation />}/>
-                    <Route path='playstation' element={<Pc />}/>
+                    <Route path='pc' element={<Pc />}/>
+                    <Route path='playstation' element={<Playstation />}/>                    
+                    <Route path='DetalheProduto/:id' element={<DetalheProduto />}/>                                  
                 </Route>
             </Routes>
         </Router>

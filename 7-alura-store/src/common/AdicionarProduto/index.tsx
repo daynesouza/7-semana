@@ -1,5 +1,4 @@
-import carrinho from 'modules/carrinho';
-import produto from 'modules/produtos/produto';
+import carrinho from 'components/carrinho';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { listaDeComprasState, saldoTotalState } from 'state/atom';
 import { Icarrinho } from 'types/carrinho';

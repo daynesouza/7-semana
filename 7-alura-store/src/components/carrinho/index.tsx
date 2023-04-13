@@ -1,4 +1,4 @@
-import Button from 'modules/button';
+import Button from 'common/button';
 import style from './Carrinho.module.scss';
 import { useRecoilState } from 'recoil';
 import { listaDeComprasState, saldoTotalState } from 'state/atom';

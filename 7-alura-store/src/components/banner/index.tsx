@@ -1,7 +1,7 @@
 import s from './Banner.module.scss';
 
-export default function Banner( imgPath : string){
+export default function Banner({ banner } : { banner : string}){
     return(
-        <img className={s.imagem} src={imgPath[0]} alt='Banner' />
+        <img className={s.imagem} src={banner} alt='Banner' />
     )
 }

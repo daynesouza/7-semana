@@ -1,16 +1,18 @@
 import style from './Produto.module.scss';
 import classNames from 'classnames';
-import adicionarCarrinho from 'modules/AdicionarProduto';
-import Button from 'modules/button';
+//import adicionarCarrinho from 'common/AdicionarProduto';
+import Button from 'common/button';
 import { Iproduto } from 'types/produto';
+import { useNavigate } from 'react-router-dom';
 
 export default function Produto( props: Iproduto){
     const { name, photo, price, id, category } = props;
     const quantidade = 1;
+    const navigate = useNavigate();
     const produtoCarrinho = {name, photo, price, id, quantidade}
 
     return (
-        <div className={style.produto}>
+        <div className={style.produto} onClick={ () => navigate(`/DetalheProduto/${id}`) }>
 
             <img className={style.produto__imagem} src={photo} alt={name}/>
 
@@ -25,7 +27,8 @@ export default function Produto( props: Iproduto){
             <Button 
                 key= {id}
                 name="Comprar"
-                onClick={ () => adicionarCarrinho(produtoCarrinho) }
+                //onClick={ () => adicionarCarrinho(produtoCarrinho) }
+                onClick={ () => {}}            
             />
         </div>
     )

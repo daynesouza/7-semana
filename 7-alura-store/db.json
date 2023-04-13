@@ -112,12 +112,12 @@
     },
     {
       "name": "Control",
-      "photo": "/assets/img/produtos/Control.jpg",
+      "photo": "/assets/img/produtos/control.jpg",
       "price": 100.00,
       "id": 12,
       "category": {
         "id": 3,
-        "label": "PC"
+        "label": "pc"
       }
     },
     {
@@ -127,7 +127,7 @@
       "id": 13,
       "category": {
         "id": 3,
-        "label": "PC"
+        "label": "pc"
       }
     },
     {
@@ -137,7 +137,7 @@
       "id": 14,
       "category": {
         "id": 3,
-        "label": "PC"
+        "label": "pc"
       }
     },
     {
@@ -147,7 +147,7 @@
       "id": 15,
       "category": {
         "id": 3,
-        "label": "PC"
+        "label": "pc"
       }
     },
     {
@@ -157,7 +157,7 @@
       "id": 16,
       "category": {
         "id": 3,
-        "label": "PC"
+        "label": "pc"
       }
     }
   ]

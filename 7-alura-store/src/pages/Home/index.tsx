@@ -1,13 +1,15 @@
 import Banner from 'components/banner';
 import s from './Home.module.scss';
+import Filtro from 'components/filtro/indext';
+import Produtos from 'components/produtos';
 
 export default function Home(){
 
-    const bannerPath = '/assets/img/Home/banner.jpg';
-
     return(
-        <main className={s.main}>
-            <Banner imgPath = {bannerPath}/>
-        </main>
+        <>
+            <Banner banner = {'/assets/img/home/banner.jpg'}/>
+            <Filtro titulo='Todos os produtos'/>
+            <Produtos filtro=''/>
+        </>
     );
 }

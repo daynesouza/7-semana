@@ -7,10 +7,12 @@
     flex-direction: column;
     justify-content: space-between;
     max-width: 14rem;
+    width: 18%;
 }
 
 .produto__imagem{
-    width: 200px;
+    width: 100%;
+    height: 60%;
 }
 .produto__container__text{
     text-align: center;

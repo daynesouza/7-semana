@@ -5,14 +5,21 @@ import { listaDeProdutosState } from 'state/atom';
 import Produto from './produto';
 
 
-export default function Produtos(){
+export default function Produtos( {filtro} : {filtro:string}){
 
     const produtos = useRecoilValue(listaDeProdutosState) //Recupera o valor 
+    let produtosFiltrados = [];
+
+    if (filtro !== ''){
+        produtosFiltrados = produtos.filter( produto => produto.category.label === filtro);
+    }else{
+        produtosFiltrados = produtos;
+    }
 
     return (
         <div className={style.produtos}>
-            {produtos.map( produto => (
-                <Produto key={`lista${produto.id}`} {...produto}/>
+            {produtosFiltrados.map( (produto, index) => (
+                <Produto key={index} {...produto}/>
             ))}
         </div>
     );
