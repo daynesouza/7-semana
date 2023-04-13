@@ -13,8 +13,6 @@ export default function adicionarCarrinho(produtoCarrinho: Icarrinho) {
     const setSaldo = useSetRecoilState(saldoTotalState);
 
     function atualizaCarrinho() {
-
-
         if (verificaCarrinhoVazio()) {
             setCarrinho([produtoCarrinho])
             setSaldo(saldo + produtoCarrinho.price)
