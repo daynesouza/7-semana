@@ -15,22 +15,23 @@ export default function useAdicionarCarrinho() {
         } else {
             atualizaQuantidadeItem(produtoCarrinho);
         }
-
     }
 
     function atualizaQuantidadeItem(produtoCarrinho: Icarrinho) {
         let carrinhoAtual: Icarrinho[];
-        
+        let quantidadeAtualizada: number;
+
         if (carrinho.find( item => item.id === produtoCarrinho.id)){
             carrinhoAtual = carrinho?.map((item) => {
                 if (produtoCarrinho.id === item.id) {
+                    quantidadeAtualizada = item.quantidade + 1;
                     return(
                     { 
                         name: produtoCarrinho.name,
                         photo: produtoCarrinho.photo,
                         price: produtoCarrinho.price,
                         id: produtoCarrinho.id,
-                        quantidade: item.quantidade++
+                        quantidade: quantidadeAtualizada
                     })
                 }else{
                     return ({item})
@@ -40,9 +41,7 @@ export default function useAdicionarCarrinho() {
             carrinhoAtual = [...carrinho, produtoCarrinho];
         }
 
-        setCarrinho([...carrinhoAtual]);
-
-      
+        setCarrinho([...carrinhoAtual]);      
     }
 
     function verificaCarrinhoVazio() {
